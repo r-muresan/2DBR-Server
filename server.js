@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 8888;
 const bodyParser = require('body-parser')
 
 let count = 0;
@@ -89,4 +88,4 @@ app.get('/', function (req, res) {
     res.send("Hello");
 });
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(process.env.PORT || 8888, () => console.log(`Example app listening at http://localhost:${port}`))
