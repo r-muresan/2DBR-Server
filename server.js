@@ -3,7 +3,6 @@ const app = express()
 const bodyParser = require('body-parser')
 
 let count = 0;
-let bullet_count = 0;
 let players = [];
 let bullets = [];
 
@@ -86,6 +85,12 @@ app.get('/bulletReadAll', (req, res) => {
 
 app.get('/', function (req, res) {
     res.send("Hello");
+});
+
+app.get('/clear', function (req, res) {
+    players = [];
+    bullets = [];
+    count = 0;
 });
 
 http.listen(process.env.PORT || 8888, function () {
