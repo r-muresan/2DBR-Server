@@ -7,7 +7,7 @@ let bullet_count = 0;
 let players = [];
 let bullets = [];
 
-
+const http = require('http').createServer(app);
 app.use(express.json())
 
 app.get('/createMap', (req, res) => {
@@ -88,4 +88,6 @@ app.get('/', function (req, res) {
     res.send("Hello");
 });
 
-app.listen(process.env.PORT || 8888, () => console.log(`Example app listening at http://localhost:${port}`))
+http.listen(process.env.PORT || 8888, function () {
+    console.log(`Your port is ${process.env.PORT}`);
+});
