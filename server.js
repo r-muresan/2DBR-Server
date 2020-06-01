@@ -38,7 +38,7 @@ app.get('/players', (req, res) => {
                 id: req.query.id,
                 x: req.query.x,
                 y: req.query.y,
-                angle: req.query.angle
+                angle: req.query.angle,
             });
             break;
         }
@@ -49,7 +49,7 @@ app.get('/players', (req, res) => {
             id: req.query.id,
             x: req.query.x,
             y: req.query.y,
-            angle: req.query.angle
+            angle: req.query.angle,
         });
     }
 
@@ -90,8 +90,13 @@ app.get('/', function (req, res) {
 app.get('/clear', function (req, res) {
     players = [];
     bullets = [];
-    count = 0;
+    res.status(200);
 });
+
+// app.get('/killed', function (req, res) {
+//     players[req.query.player].dead = true;
+//     res.status(200);
+// });
 
 http.listen(process.env.PORT || 8888, function () {
     console.log(`Your port is ${process.env.PORT}`);
